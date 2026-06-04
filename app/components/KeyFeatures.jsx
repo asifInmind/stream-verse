@@ -8,6 +8,7 @@ import icon1 from "../../public/icons/Frame 72.svg";
 export default function KeyFeatures() {
   return (
     <>
+      {/* Key Features Section */}
       <section className="key-features ">
         <div className="feature-section-title">
           <h1 className="text-[40px] font-[600] text-center text-[#fcfafa] capitalize">
