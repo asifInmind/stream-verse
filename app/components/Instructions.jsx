@@ -1,7 +1,20 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import videoImg from "../../public/images/History.png";
 import Image from "next/image";
+import image1 from "../../public/images/History (Filters).png";
+import image2 from "../../public/images/History (More Options).png";
+import image3 from "../../public/images/Stream Analytics.png";
+
 export default function Instructions() {
+  const [images, setImages] = useState(image1);
+  const [activeStep, setActiveStep] = useState("01");
+
+  const handleStepClick = (stepNumber, imageFile) => {
+    setActiveStep(stepNumber);
+    setImages(imageFile);
+  };
+
   return (
     <>
       <section className="mt-12 mb-12">
@@ -13,12 +26,18 @@ export default function Instructions() {
             Start streaming to multiple platforms in just a few simple steps
           </p>
         </div>
-        <section className="flex justify-center items-center gap-4">
+        <section className="flex justify-center items-center gap-4 h-184">
           <section className="w-172.5 relative">
             <div className="w-0.5 z-0 h-150 bg-[#3D3D3C] absolute left-8"></div>
+
             <div className="flex justify-center items-center gap-8">
-              <div className="z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer active:bg-[#C3EB4D] bg-[#2E2E2D] hover:bg-[#C3EB4D]">
-                <span className=" text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
+              <div
+                className={`z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] ${
+                  activeStep === "01" ? "bg-[#C3EB4D]" : "bg-[#2E2E2D]"
+                }`}
+                onClick={() => handleStepClick("01", image1)}
+              >
+                <span className="text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
                   01
                 </span>
               </div>
@@ -35,9 +54,15 @@ export default function Instructions() {
                 </li>
               </div>
             </div>
+
             <div className="flex justify-center items-center gap-8 mt-4">
-              <div className="z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer active:bg-[#C3EB4D] bg-[#2E2E2D] hover:bg-[#C3EB4D]">
-                <span className=" text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
+              <div
+                className={`z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] ${
+                  activeStep === "02" ? "bg-[#C3EB4D]" : "bg-[#2E2E2D]"
+                }`}
+                onClick={() => handleStepClick("02", image2)}
+              >
+                <span className="text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
                   02
                 </span>
               </div>
@@ -54,9 +79,15 @@ export default function Instructions() {
                 </li>
               </div>
             </div>
+
             <div className="flex justify-center items-center gap-8 mt-4">
-              <div className="z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer active:bg-[#C3EB4D] bg-[#2E2E2D] hover:bg-[#C3EB4D]">
-                <span className=" text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
+              <div
+                className={`z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] ${
+                  activeStep === "03" ? "bg-[#C3EB4D]" : "bg-[#2E2E2D]"
+                }`}
+                onClick={() => handleStepClick("03", image3)}
+              >
+                <span className="text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
                   03
                 </span>
               </div>
@@ -74,9 +105,15 @@ export default function Instructions() {
                 </li>
               </div>
             </div>
+
             <div className="flex justify-center items-center gap-8 mt-4">
-              <div className="z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer active:bg-[#C3EB4D] bg-[#2e2e2d] hover:bg-[#C3EB4D]">
-                <span className=" text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
+              <div
+                className={`z-10 w-16 h-16 rounded-2xl p-2 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] ${
+                  activeStep === "04" ? "bg-[#C3EB4D]" : "bg-[#2E2E2D]"
+                }`}
+                onClick={() => handleStepClick("04", videoImg)}
+              >
+                <span className="text-[24px] text-black font-bold leading-9 w-12 flex justify-center items-center pt-1">
                   04
                 </span>
               </div>
@@ -94,14 +131,15 @@ export default function Instructions() {
               </div>
             </div>
           </section>
+
           <section className="w-100.5">
             <div className="relative max-w-sm overflow-hidden rounded-[60px]">
               <Image
-                src={videoImg}
-                alt="sample images "
-                className="w-full.25 h-184 "
+                src={images}
+                alt="sample images"
+                className="w-full.25 h-184 transition-all duration-300 "
               />
-              <div class="absolute inset-0 pointer-events-none shadow-[inset_0_10px_10px_rgba(46,46,45,0.5)] rounded-xl"></div>
+              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_10px_20px_rgba(146,146,145,0.5)] rounded-xl"></div>
             </div>
           </section>
         </section>

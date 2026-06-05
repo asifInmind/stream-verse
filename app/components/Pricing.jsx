@@ -80,7 +80,7 @@ export default function Pricing() {
                   {item.description}
                 </p>
                 <div className="flex justify-between items-center mt-12">
-                  <button className="p-3 rounded-xl bg-[#1E1F1E] hover:bg-[#C3EB4D] hover:text-[#141414] cursor-pointer w-37.4 h-12 font-medium text-[16px] capitalize text-[#fcfcfa] border border-0 border-t-3 border-[#444343]">
+                  <button className="p-3 rounded-xl bg-[#1E1F1E] hover:bg-[#C3EB4D] hover:text-[#141414] cursor-pointer w-37.4 h-12 font-medium text-[16px] capitalize text-[#fcfcfa] border  border-t-3 border-[#444343]">
                     {"get started"}
                   </button>
                   <p className="text-[36px] leading-12 font-semibold text-[#fcfcfa]">
@@ -92,7 +92,7 @@ export default function Pricing() {
                 </div>
               </div>
               <div className="">
-                <p>
+                <div>
                   <span></span>
                   <ul>
                     {item.list.map((item, index) => (
@@ -114,7 +114,7 @@ export default function Pricing() {
                       </div>
                     ))}
                   </ul>
-                </p>
+                </div>
               </div>
             </div>
           ))}

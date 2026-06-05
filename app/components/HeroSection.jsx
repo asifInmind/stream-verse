@@ -26,6 +26,10 @@ export default function HeroSection() {
           <div className="w-27 h-27 absolute bottom-[-50] left-68">
             <Image src={icon1} alt=" icon" />
           </div>
+          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute left-104 -bottom-1  "></div>
+          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute left-93 -top-1  "></div>
+          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute right-93 -bottom-1  "></div>
+          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute right-104 -top-1  "></div>
         </div>
         <div className="flex justify-center items-center">
           <Image src={rightGraph} alt="graph" className="w-114 h-48.5" />

@@ -9,15 +9,15 @@ export default function Banner() {
     <>
       <section className=" flex justify-between gap-4 item-center  w-[80%] ms-auto me-auto bg-[#C3EB4D] rounded-[32px] p-[24px] pb-[2px]  mt-16 mb-30">
         <section className="left-content w-[40%] ">
-          <h1 className="text-[40px] font-[600] capitalize leading-[60px]">
+          <h1 className="text-[40px] font-samibold capitalize leading-15">
             {" "}
             start livestreaming <br /> smater today
           </h1>
-          <p className="font-[400] text-[18px] leading-[32px]">
+          <p className="font-normal text-[18px] leading-8">
             With just one click, go live and engage your audience everywhere
             without the hassle of managing separate streams.
           </p>
-          <button className="bg-[#141414] rounded-2xl p-4 w-[214px] cursor-pointer text-[20px] font-[500] text-[#fcfafa] capitalize leading-8 mt-3">
+          <button className="bg-[#141414] rounded-2xl p-4 w-53.5 cursor-pointer text-[20px] font-[500] text-[#fcfafa] capitalize leading-8 mt-3">
             go live now
           </button>
         </section>
