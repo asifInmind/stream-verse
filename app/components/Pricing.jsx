@@ -1,7 +1,11 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import selection from "../../public/icons/Selection.svg";
+import { motion } from "framer-motion";
+
 export default function Pricing() {
+  const [activeCard, setActiveCard] = useState(null);
   const pricing = [
     {
       id: 1,
@@ -50,73 +54,121 @@ export default function Pricing() {
       ],
     },
   ];
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 90 },
+    visible: (delay) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: delay,
+        ease: "easeOut",
+      },
+    }),
+  };
 
   return (
     <>
-      <section className="mt-13 mb-13">
-        <div>
-          <h1 className="title text-[40px] leading-16 text-center text-[#fcfafa] font-semibold">
+      <section className="mt-12 mb-12 px-4 max-w-7xl mx-auto">
+        <div className="mb-10 px-2">
+          <h1 className="title text-3xl sm:text-4xl md:text-[40px] text-center text-[#fcfafa] font-semibold leading-tight">
             Simple Pricing for Every Creator
           </h1>
-          <p className="text-center text-[#fcfafa] leading-8 font-normal">
+          <p className="text-center text-[#fcfafa] text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed">
             Flexible plans designed to fit all streamers — from casual content
             creators to full-time professionals.
           </p>
         </div>
-        <section className="with-[80%] ms-auto me-auto flex justify-center gap-2">
+
+        <section className="w-full flex flex-wrap lg:flex-nowrap justify-center gap-6 items-stretch">
           {pricing.map((item) => (
-            <div
-              className="rounded-4xl border border-solid border-[#2E2E2D] p-2 w-90 h-125 mt-6 hover:border-[#C3EB4D] group"
+            <motion.div
+              variants={fadeInUpVariants}
+              initial="hidden"
+              whileInView="visible"
+              custom={0}
+              whileHover={{ scale: 1.02 }}
               key={item.id}
             >
-              <div className="w-86 h-55 rounded-3xl p-4 bg-[#2E2E2D] relative">
-                <div className="h-3 w-3 rounded-full bg-[#1E1F1E] absolute top-6.75 group-hover:bg-[#C3EB4D] ">
-                  {" "}
-                </div>
-                <h3 className=" font-medium text-xl text-[#fcfafa] leading-8 ms-5">
-                  {item.title}
-                </h3>
-                <p className="font-normal text-[16px] text-[#fcfcfa] w-78 leading-6 pt-2">
-                  {item.description}
-                </p>
-                <div className="flex justify-between items-center mt-12">
-                  <button className="p-3 rounded-xl bg-[#1E1F1E] hover:bg-[#C3EB4D] hover:text-[#141414] cursor-pointer w-37.4 h-12 font-medium text-[16px] capitalize text-[#fcfcfa] border  border-t-3 border-[#444343]">
-                    {"get started"}
-                  </button>
-                  <p className="text-[36px] leading-12 font-semibold text-[#fcfcfa]">
-                    ${item.price}
-                    <span className="text-[16px] leading-6 font-normal">
-                      /month
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="">
+              <div
+                onClick={() => setActiveCard(item.id)}
+                className={`rounded-4xl border p-3 w-full sm:w-90 lg:w-90 flex flex-col justify-between cursor-pointer transition-all duration-300 min-h-125 group hover:border-[#c3eb4d]
+            ${
+              activeCard === item.id ? "border-[#C3EB4D]" : "border-[#2E2E2D]"
+            }`}
+              >
                 <div>
-                  <span></span>
-                  <ul>
-                    {item.list.map((item, index) => (
+                  <div className="w-full rounded-3xl p-5 bg-[#2E2E2D] relative flex flex-col justify-between min-h-55">
+                    <div className="flex items-start gap-3">
                       <div
-                        key={index}
-                        className="flex justify-start items-center gap-2"
-                      >
-                        <Image
-                          src={selection}
-                          alt="selection image"
-                          className="pt-4"
-                        />
-                        <li
-                          key={index}
-                          className="text-[16px] font-normal text-[#fcfcfa] pt-4"
-                        >
-                          {item}
-                        </li>
+                        className={`h-3 w-3 rounded-full mt-2.5 shrink-0 transition-colors duration-300 group-hover:bg-[#C3EB4D] ${
+                          activeCard === item.id
+                            ? "bg-[#C3EB4D]"
+                            : "bg-[#1E1F1E]"
+                        }`}
+                      ></div>
+
+                      <div>
+                        <h3 className="font-medium text-xl text-[#fcfafa]">
+                          {item.title}
+                        </h3>
+                        <p className="font-normal text-sm sm:text-[16px] text-zinc-300 mt-2">
+                          {item.description}
+                        </p>
                       </div>
-                    ))}
-                  </ul>
+                    </div>
+
+                    <div className="flex justify-between items-center mt-6 pt-2">
+                      <button
+                        className={`py-2.5 px-4 rounded-xl text-sm font-medium capitalize border transition-all duration-300 cursor-pointer
+                    ${
+                      activeCard === item.id
+                        ? "bg-[#C3EB4D] text-[#141414] border-[#C3EB4D]"
+                        : "bg-[#1E1F1E] text-[#fcfcfa] border-zinc-700"
+                    }`}
+                      >
+                        get started
+                      </button>
+
+                      <p className="text-3xl sm:text-[36px] font-semibold text-[#fcfcfa]">
+                        ${item.price}
+                        <span className="text-sm sm:text-[16px] font-normal text-zinc-400">
+                          /month
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="p-4">
+                    {" "}
+                    <ul className="flex flex-col gap-3">
+                      {" "}
+                      {item.list.map((feature, index) => (
+                        <div
+                          key={index}
+                          className="flex justify-start items-start gap-3"
+                        >
+                          {" "}
+                          <div className="shrink-0 pt-1">
+                            {" "}
+                            <Image
+                              src={selection}
+                              alt="selection icon"
+                              width={16}
+                              height={16}
+                            />{" "}
+                          </div>{" "}
+                          <li className="text-sm sm:text-[16px] font-normal text-zinc-300 leading-tight">
+                            {" "}
+                            {feature}
+                          </li>{" "}
+                        </div>
+                      ))}{" "}
+                    </ul>{" "}
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </section>
       </section>

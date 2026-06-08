@@ -1,80 +1,165 @@
+"use client";
+import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+import icon1 from "../../public/icons/Frame 72.svg";
 import icon2 from "../../public/icons/Frame 72 (1).svg";
 import icon3 from "../../public/icons/Frame 72 (2).svg";
 import icon4 from "../../public/icons/Frame 72 (3).svg";
 import icon5 from "../../public/icons/Frame 72 (4).svg";
-import icon1 from "../../public/icons/Frame 72.svg";
-import vector from "../../public/images/Vector 3.png";
+
+const fadeInUpVariants = {
+  hidden: { opacity: 0, y: 60 },
+  visible: (delay) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: delay,
+      ease: "easeOut",
+    },
+  }),
+};
+
 export default function KeyFeatures() {
   return (
-    <>
-      <section className="w-300 ms-auto me-auto">
-        <div>
-          <h1 className="text-[40px] font-semibold text-center text-[#fcfafa] capitalize">
-            key features
-          </h1>
-          <p className="text-center text-[#fafcfc] text-[18px] font-normal leading-15">
-            Everything you need to maximize your streaming reach
-          </p>
-        </div>
-        <div className=" flex justify-center gap-3">
-          <div
-            className=" transition-transform duration-1000 ease-in-out scale-100 hover:scale-103  w-73 h-87.5 bg-linear-to-b from-[#232c2e] to-[#141414]  p-6 rounded-4xl border  border-[#232c2e] cursor-pointer"
-            style={{
-              backgroundImage: `url(../../public/images/Vector 3.png`,
-              backgroundSize: "cover",
-            }}
-          >
-            <Image src={icon1} alt="icons" />
-            <h1 className="text-[25px] font-semibold capitalize text-[#fcfafa] pt-6">
+    <section className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mb-12">
+        <h1 className="text-3xl sm:text-4xl font-semibold text-center text-[#fcfafa] capitalize tracking-tight">
+          key features
+        </h1>
+        <p className="text-center text-zinc-400 text-base sm:text-lg font-normal mt-2 max-w-md mx-auto">
+          Everything you need to maximize your streaming reach
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={0}
+          whileHover={{ scale: 1.02 }}
+          className="bg-linear-to-b from-[#232c2e] to-[#141414] p-6 rounded-3xl border border-[#232c2e] cursor-pointer relative overflow-hidden h-80 flex flex-col justify-between"
+        >
+          <div>
+            <Image
+              src={icon1}
+              alt="Multi streaming icon"
+              width={48}
+              height={48}
+            />
+            <h2 className="text-xl sm:text-2xl font-semibold capitalize text-[#fcfafa] pt-6">
               multi streaming
-            </h1>
-            <p className="text-[16px] text-[#fcfafa] pt-4">
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 pt-2">
               Go live on YouTube, Facebook, TikTok, and more — all at once from
               one dashboard.
             </p>
           </div>
-          <div className=" transition-transform duration-1000 ease-in-out scale-100 hover:scale-103 w-73 h-87.5 bg-linear-to-b from-[#2E2A1F] to-[#141414] p-6 rounded-4xl  border  border-[#2E2A1F] cursor-pointer">
-            <Image src={icon2} alt="icons" />
-            <h1 className="text-[25px] font-semibold capitalize text-[#fcfafa] pt-6">
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={0.1}
+          whileHover={{ scale: 1.02 }}
+          className="bg-linear-to-b from-[#2E2A1F] to-[#141414] p-6 rounded-3xl border border-[#2E2A1F] cursor-pointer h-80 flex flex-col justify-between"
+        >
+          <div>
+            <Image
+              src={icon2}
+              alt="Real time audience icon"
+              width={48}
+              height={48}
+            />
+            <h2 className="text-xl sm:text-2xl font-semibold capitalize text-[#fcfafa] pt-6">
               real time audience
-            </h1>
-            <p className="text-[16px] text-[#fcfafa] pt-4">
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 pt-2">
               View and respond to comments across platforms in a single
               dashboard.
             </p>
           </div>
-          <div className=" transition-transform duration-1000 ease-in-out scale-100 hover:scale-103 w-73 h-87.5 bg-linear-to-b from-[#242E1F] to-[#141414] p-6 rounded-4xl  border  border-[#2E2A1F] cursor-pointer">
-            <Image src={icon3} alt="icons" />
-            <h1 className="text-[25px] font-semibold capitalize text-[#fcfafa] pt-6">
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={0.2}
+          whileHover={{ scale: 1.02 }}
+          className="bg-linear-to-b from-[#242E1F] to-[#141414] p-6 rounded-3xl border border-[#242E1F] cursor-pointer md:col-span-2 lg:col-span-1 h-80 flex flex-col justify-between"
+        >
+          <div>
+            <Image
+              src={icon3}
+              alt="Advanced analytics icon"
+              width={48}
+              height={48}
+            />
+            <h2 className="text-xl sm:text-2xl font-semibold capitalize text-[#fcfafa] pt-6">
               advance analytics
-            </h1>
-            <p className="text-[16px] text-[#fcfafa] pt-4">
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 pt-2">
               Get detailed insights on viewer engagement and performance.
             </p>
           </div>
-        </div>
-        <div className=" flex justify-center gap-3 mt-3">
-          <div className=" transition-transform duration-1000 ease-in-out scale-100 hover:scale-103 w-149.5 h-87.5 bg-linear-to-b from-[#262B2E] to-[#141414] p-6 rounded-4xl border  border-[#2E2A1F] cursor-pointer">
-            <Image src={icon4} alt="icons" />
-            <h1 className="text-[25px] font-semibold capitalize text-[#fcfafa] pt-6">
-              stream constomization
-            </h1>
-            <p className="text-[16px] text-[#fcfafa] pt-4">
-              Adjust resolution, audio, and settings for each platform.
+        </motion.div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={0.3}
+          whileHover={{ scale: 1.02 }}
+          className="bg-linear-to-b from-[#262B2E] to-[#141414] p-6 rounded-3xl border border-[#262B2E] cursor-pointer lg:col-span-2 h-80 flex flex-col justify-between"
+        >
+          <div>
+            <Image
+              src={icon4}
+              alt="Stream customization icon"
+              width={48}
+              height={48}
+            />
+            <h2 className="text-xl sm:text-2xl font-semibold capitalize text-[#fcfafa] pt-6">
+              stream customization
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 pt-2">
+              Adjust resolution, audio, and settings for each platform to
+              deliver a premium viewer experience.
             </p>
           </div>
-          <div className=" transition-transform duration-1000 ease-in-out scale-100 hover:scale-103 w-73 h-87.5 bg-linear-to-b from-[#28262E] to-[#141414] p-6 rounded-xl border  border-[#2E2A1F] cursor-pointer">
-            <Image src={icon5} alt="icons" />
-            <h1 className="text-[25px] font-semibold capitalize text-[#fcfafa] pt-6">
+        </motion.div>
+
+        <motion.div
+          variants={fadeInUpVariants}
+          initial="hidden"
+          whileInView="visible"
+          custom={0.4}
+          whileHover={{ scale: 1.02 }}
+          className="bg-linear-to-b from-[#28262E] to-[#141414] p-6 rounded-3xl border border-[#28262E] cursor-pointer h-80 flex flex-col justify-between"
+        >
+          <div>
+            <Image
+              src={icon5}
+              alt="Social integration icon"
+              width={48}
+              height={48}
+            />
+            <h2 className="text-xl sm:text-2xl font-semibold capitalize text-[#fcfafa] pt-6">
               social integration
-            </h1>
-            <p className="text-[16px] text-[#fcfafa] pt-4">
+            </h2>
+            <p className="text-sm sm:text-base text-zinc-300 pt-2">
               Easily link your accounts and manage livestreams in one place.
             </p>
           </div>
-        </div>
-      </section>
-    </>
+        </motion.div>
+      </div>
+    </section>
   );
 }

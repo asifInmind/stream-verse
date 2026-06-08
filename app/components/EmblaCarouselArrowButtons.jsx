@@ -22,7 +22,6 @@ export const usePrevNextButtons = (emblaApi) => {
 
   useEffect(() => {
     if (!emblaApi) return;
-
     onSelect(emblaApi);
     emblaApi.on("reinit", onSelect).on("select", onSelect);
   }, [emblaApi, onSelect]);
@@ -37,17 +36,14 @@ export const usePrevNextButtons = (emblaApi) => {
 
 export const PrevButton = (props) => {
   const { children, disabled, ...restProps } = props;
-
   return (
     <button
-      className={`w-9 h-9 rounded-full flex cursor-pointer items-center justify-center bg-[#1E1F1E] outline-1 outline-[#3D3D3C]   text-[#fcfafa] shadow-sm transition-all
-    ${
-      disabled
-        ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
-        : "active:scale-95"
-    }`}
+      className={`p-2 rounded-full border border-zinc-700 bg-zinc-800 text-[#fcfafa] flex items-center justify-center w-10 h-10 transition-all duration-200 hover:bg-[#C3EB4D] hover:text-black active:scale-95 ${
+        disabled
+          ? "opacity-30 cursor-not-allowed pointer-events-none"
+          : "cursor-pointer"
+      }`}
       type="button"
-      disabled={disabled}
       {...restProps}
     >
       <svg className="w-4 h-4" viewBox="0 0 532 532">
@@ -63,17 +59,14 @@ export const PrevButton = (props) => {
 
 export const NextButton = (props) => {
   const { children, disabled, ...restProps } = props;
-
   return (
     <button
-      className={`w-9 h-9 rounded-full flex items-center cursor-pointer justify-center bg-[#1E1F1E] outline-1 outline-[#3D3D3C]  text-[#fcfcfa] shadow-sm transition-all
-    ${
-      disabled
-        ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
-        : " active:scale-95"
-    }`}
+      className={`p-2 rounded-full border border-zinc-700 bg-zinc-800 text-[#fcfafa] flex items-center justify-center w-10 h-10 transition-all duration-200 hover:bg-[#C3EB4D] hover:text-black active:scale-95 ${
+        disabled
+          ? "opacity-30 cursor-not-allowed pointer-events-none"
+          : "cursor-pointer"
+      }`}
       type="button"
-      disabled={disabled}
       {...restProps}
     >
       <svg className="w-4 h-4" viewBox="0 0 532 532">

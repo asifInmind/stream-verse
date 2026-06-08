@@ -1,67 +1,56 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import youtube from "../../public/icons/Frame 58.svg";
-import facebook from "../../public/icons/Frame 53.svg";
-import ticktok from "../../public/icons/Frame 54.svg";
-import insta from "../../public/icons/Frame 55.svg";
-import streamverse from "../../public/icons/Frame 67.svg";
-import icon1 from "../../public/icons/Frame 57.svg";
-import icon2 from "../../public/icons/Frame 56.svg";
 import Button from "./Button";
-import leftGraph from "../../public/images/Vector 2.svg";
-import rightGraph from "../../public/images/Vector 1.svg";
-
+import hero from "../../public/images/hero.png";
+import { motion } from "framer-motion";
 export default function HeroSection() {
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 90 },
+    visible: (delay) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: delay,
+        ease: "easeOut",
+      },
+    }),
+  };
   return (
     <>
-      <section className=" flex justify-between mt-60 items-center h-75.2  relative">
-        <div className="">
-          <div className="w-30.5 h-30.5 absolute top-13 left-7">
-            <Image src={youtube} alt="youtube icon" />
-          </div>
-          <div className="w-20 h-20 absolute top-[-35] left-55">
-            <Image src={ticktok} alt="TikTok icon " />
-          </div>
-          <div className="w-27 h-27 absolute bottom-[-50] left-68">
-            <Image src={icon1} alt=" icon" />
-          </div>
-          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute left-104 -bottom-1  "></div>
-          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute left-93 -top-1  "></div>
-          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute right-93 -bottom-1  "></div>
-          <div className="h-3 w-3 rounded-full bg-[#C3EB4D] absolute right-104 -top-1  "></div>
-        </div>
-        <div className="flex justify-center items-center">
-          <Image src={rightGraph} alt="graph" className="w-114 h-48.5" />
-          <Image src={streamverse} alt="stream verse" className="w-43 h-43 " />
-          <Image src={leftGraph} alt="graph" className="w-114 h-48.5" />
-        </div>
-        <div className=" ">
-          <div className="w-30.5 h-30.5 absolute right-70 top-[-60]">
-            <Image src={facebook} alt="facebook icon " />
-          </div>
-          <div className="w-20.25 h-20.25 absolute right-60 bottom-[-40]">
-            <Image src={insta} alt="insta icon" />
-          </div>
-          <div className="w-[94.9px] h-[94.9px] absolute right-15 top-10">
-            <Image src={icon2} alt=" icon" />
-          </div>
-        </div>
+      <section className="relative flex justify-center items-center mt-20 sm:mt-62 lg:mt-60 px-4 overflow-hidden">
+        <motion.div
+          initial={{ scale: 1.15, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="w-full flex justify-center items-center"
+        >
+          <Image src={hero} alt="hero image" priority />
+        </motion.div>
       </section>
-      <section className=" w-300 h-91.5 m-auto">
-        <h1 className="text-[60px] leading-22.5 font-bold text-center capitalize text-[#fcfafa]">
-          all-in-one <br /> streaming{" "}
-          <span className="text-[#c3eb4d]">platform</span>
-        </h1>
-        <p className="text-[20px] font-normal leading-9 text-center text-[#fcfafa]">
-          FLOWLIVE is the ultimate livestreaming solution for content creators.
-          Broadcast across multiple social media platforms like YouTube, TikTok,
-          Instagram, Facebook, and BIGO—all at the same time.
-        </p>
-        <div className="flex items-center justify-center mt-3">
-          <Button text={"go live now"} />
-        </div>
-      </section>
+
+      <motion.div
+        variants={fadeInUpVariants}
+        initial="hidden"
+        whileInView="visible"
+        custom={0}
+        whileHover={{ scale: 1.02 }}
+      >
+        <section className="w-full max-w-5xl mx-auto px-4 sm:px-8 mt-10 sm:mt-14 lg:mt-20">
+          <h1 className="text-[36px] sm:text-[48px] lg:text-[60px] leading-tight font-bold text-center capitalize text-[#fcfafa]">
+            all-in-one <br /> streaming{" "}
+            <span className="text-[#c3eb4d]">platform</span>
+          </h1>
+          <p className="text-[14px] sm:text-[16px] lg:text-[20px] font-normal leading-7 sm:leading-8 lg:leading-9 text-center text-[#fcfafa] mt-4 max-w-3xl mx-auto">
+            FLOWLIVE is the ultimate livestreaming solution for content
+            creators. Broadcast across multiple social media platforms like
+            YouTube, TikTok, Instagram, Facebook, and BIGO—all at the same time.
+          </p>
+          <div className="flex items-center justify-center mt-6">
+            <Button text={"go live now"} />
+          </div>
+        </section>
+      </motion.div>
     </>
   );
 }

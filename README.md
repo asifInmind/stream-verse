@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌌 StreamVerse
+
+StreamVerse is a high-performance, modern streaming dashboard designed to help content creators maximize their audience reach. Creators can stream to multiple platforms simultaneously, track real-time analytics, interact with live audience chat across networks, and customize their streams—all from a single, unified dashboard.
+
+## ✨ Features
+
+- **Multi-Streaming:** Broadcast live to YouTube, Facebook, TikTok, and Twitch simultaneously.
+- **Unified Live Chat:** View and respond to audience comments from all platforms in one central feed.
+- **Advanced Analytics:** Deep insights into viewer retention, growth metrics, and platform performance.
+- **Stream Customization:** Fine-tune resolution, audio bitrates, and ingest settings per platform.
+- **Secure Integrations:** Easy, secure OAuth links to attach streaming channels seamlessly.
+- **Premium UI/UX:** Built with a dark-mode aesthetic featuring fluid animations by Framer Motion.
+
+## Tech Stack
+
+- **Framework:** Next.js 15 (App Router, Client Components)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion (Scroll-driven and page-load animations)
+- **Icons & Images:** Next/Image optimized assets
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up StreamVerse locally on your machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+Ensure you have **Node.js** (v18.x or higher) and **npm/pnpm/yarn** installed.
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/asifInmind/stream-verse.git
+   cd stream-verse
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   # or
+   pnpm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables:**
+   Create a `.env.local` file in the root directory and add your keys (e.g., streaming API endpoints, auth secrets):
+
+   ```env
+   NEXT_PUBLIC_API_URL=https://streamverse.com
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the live app.
+
+## 📁 Project Structure
+
+```text
+├── public/              # Static assets (icons, hero graphics)
+├── src/
+│   ├── app/             # Next.js App Router (layout, pages)
+│   ├── components/      # Reusable UI elements (KeyFeatures, HeroSection)
+│   └── styles/          # Global styles & Tailwind configuration
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Animations Implemented
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Staggered Card Entry:** Dashboard key feature cards smoothly slide up from the bottom with a time-delay cascade when scrolling into view.
+- **Cinematic Hero Zoom:** The landing page front image smoothly zooms out and fades in upon page load to create an instant premium look.

@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import iphone1 from "../../public/images/iPhone 13 Pro.png";
 import iphone2 from "../../public/images/Redmi Note 11 Pro.png";
@@ -7,65 +6,95 @@ import playstore from "../../public/icons/playstore.svg";
 
 export default function MobilePhones() {
   return (
-    <>
-      <section className=" relative mt-15 mb-140">
-        <section className=" flex justify-evenly w-full ms-auto me-auto bg-linear-to-t  via-50% from-[#89b20275] h-127.2">
-          <Image src={iphone1} alt="iphone image" className="w-79.75 " />
-          <Image src={iphone2} alt="Iphone image" className="w-79.75" />
-        </section>
-        <div className="absolute -bottom-91.5 left-0 right-0 border-t-6 bg-[#141414]   ms-auto me-auto overflow-hidden border-[#b0da29] h-125 rounded-t-[50%_120px] "></div>
-        <section className="absolute -bottom-119.5 left-0 right-0 h-125 bg-[#141414]  ms-auto me-auto ">
-          <h1 className="text-[40px] text-[#fcfafa] font-semibold  text-center pt-19">
+    <section
+      className="w-full  relative overflow-hidden pt-12 mt-10 "
+      style={{
+        background:
+          "linear-gradient(to bottom, #abdf0f) 0%, transparent 100%) ",
+      }}
+    >
+      <div className="flex justify-center items-end gap-4 md:gap-28 w-full px-4 relative bg-linear-to-t from-[rgba(195,235,77,0.5)] to-transparent pb-20 ">
+        <div className="w-1/2 max-w-40 sm:max-w-50 md:max-w-60 z-2">
+          <Image
+            src={iphone1}
+            alt="iphone image"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="w-1/2 max-w-40 sm:max-w-50 md:max-w-60 z-2">
+          <Image
+            src={iphone2}
+            alt="Redmi Note 11 Pro"
+            className="w-full h-auto object-contain"
+          />
+        </div>
+        <div className="absolute -bottom-38.75 left-0 w-full h-100 pointer-events-none z-1 bg-linear-to-t from-[rgba(191,255,1)] to-transparent "></div>
+      </div>
+
+      <div className="relative z-10 -mt-16 sm:-mt-24 md:-mt-32 w-full bg-[#141414] px-4 pt-24 sm:pt-32 md:pt-40 pb-16 border-t-4 border-[#b0da29] rounded-t-[10%] sm:rounded-t-[50%]  ">
+        <div className="max-w-3xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-[40px] text-[#fcfafa] font-semibold leading-tight">
             Download StreamVerse App
           </h1>
-          <p className="text-[18px] font-normal text-[#fcfafa] text-center pt-5 ">
+          <p className="text-base sm:text-lg text-[#fcfafa] opacity-90 mt-4 max-w-xl mx-auto">
             Go live anytime, anywhere. Stream seamlessly across all your
             favorite platforms — right from your phone.
           </p>
-          <div className=" flex justify-center gap-3 mt-8.75">
-            <div className=" bg-[#1e1f1e] pt-4 pb-4 ps-3 pe-3 w-100 h-59.75 flex justify-center text-center flex-col rounded-[20px] p-6 gap-6">
-              <h1 className="font-semibold text-[32px] text-[#fcfafa]">IOS</h1>
-              <p className="text-[20px] font-normal text-[#fcfafa]">
+
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-10">
+            <div className="bg-[#1e1f1e] w-full sm:w-72 p-6 flex flex-col items-center text-center rounded-[20px] gap-4 border border-zinc-800">
+              <h2 className="font-semibold text-2xl sm:text-3xl text-[#fcfafa]">
+                iOS
+              </h2>
+              <p className="text-base sm:text-lg text-[#fcfafa] opacity-80">
                 Mobile app
               </p>
-              <div className=" ms-auto me-auto bg-[#2E2E2D] w-56.75 h-20 rounded-[11.3px] pt-4 pb-4 ps-3 pe-3 flex justify-center gap-3 cursor-pointer hover:bg-[#C3EB4D]">
-                <div>
-                  <Image src={apple} alt="app store icons " />
-                </div>
-                <div>
-                  <p className="font-normal text-[12px] text-[#fcfafa] ">
-                    Download on the{" "}
+              <div className="bg-[#2E2E2D] w-full max-w-55 py-3 px-4 rounded-xl flex items-center justify-center gap-3 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] group">
+                <Image
+                  src={apple}
+                  alt="app store"
+                  width={24}
+                  className="shrink-0 h-auto"
+                />
+                <div className="text-left">
+                  <p className="text-[10px] text-[#fcfafa] opacity-80 group-hover:text-black">
+                    Download on the
                   </p>
-                  <h3 className="text-[20px] font-normal text-[#fcfafa] capitalize ">
+                  <h3 className="text-base font-medium text-[#fcfafa] capitalize group-hover:text-black">
                     apple store
                   </h3>
                 </div>
               </div>
             </div>
-            <div className=" bg-[#1e1f1e] pt-4 pb-4 ps-3 pe-3 w-100 h-59.75 flex justify-center text-center flex-col rounded-[20px] p-6 gap-6">
-              <h1 className="font-semibold text-[32px] text-[#fcfafa]">
+
+            <div className="bg-[#1e1f1e] w-full sm:w-72 p-6 flex flex-col items-center text-center rounded-[20px] gap-4 border border-zinc-800">
+              <h2 className="font-semibold text-2xl sm:text-3xl text-[#fcfafa]">
                 Playstore
-              </h1>
-              <p className="text-[20px] font-normal text-[#fcfafa]">
+              </h2>
+              <p className="text-base sm:text-lg text-[#fcfafa] opacity-80">
                 Mobile app
               </p>
-              <div className=" ms-auto me-auto bg-[#2E2E2D] w-56.75 h-20 rounded-[11.3px] pt-4 pb-4 ps-3 pe-3 flex justify-center gap-3 cursor-pointer hover:bg-[#C3EB4D]">
-                <div>
-                  <Image src={playstore} alt="app store icons " />
-                </div>
-                <div>
-                  <p className="font-normal text-[12px] text-[#fcfafa] ">
-                    Get it on{" "}
+              <div className="bg-[#2E2E2D] w-full max-w-55 py-3 px-4 rounded-xl flex items-center justify-center gap-3 cursor-pointer transition-colors duration-300 hover:bg-[#C3EB4D] group">
+                <Image
+                  src={playstore}
+                  alt="play store"
+                  width={24}
+                  height={24}
+                  className="shrink-0"
+                />
+                <div className="text-left">
+                  <p className="text-[10px] text-[#fcfafa] opacity-80 group-hover:text-black">
+                    Get it on
                   </p>
-                  <h3 className="text-[20px] font-normal text-[#fcfafa] capitalize ">
+                  <h3 className="text-base font-medium text-[#fcfafa] capitalize group-hover:text-black">
                     google play
                   </h3>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-      </section>
-    </>
+        </div>
+      </div>
+    </section>
   );
 }
